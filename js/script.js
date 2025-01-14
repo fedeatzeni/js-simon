@@ -59,11 +59,10 @@ button.addEventListener("click", (event) => {
     }
     console.log(inputList);
 
+    //output
     let rightNumbers = []
-
     for (let i = 0; i < inputList.length; i++) {
-        if (inputList[i] === numbers[0] || inputList[i] === numbers[1] || inputList[i] === numbers[2]
-            || inputList[i] === numbers[3] || inputList[i] === numbers[4]) {
+        if (numbers.includes(inputList[i])) {
             rightNumbers.push(inputList[i])
         }
     }
