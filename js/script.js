@@ -8,9 +8,10 @@ const time = 0
 const countdown = document.getElementById("countdown");
 const numbersList = document.getElementById("numbers-list");
 const answersForm = document.getElementById("answers-form");
+const message = document.getElementById("message");
 
 const input = document.querySelectorAll("input");
-const button= document.querySelector("button");
+const button = document.querySelector("button");
 
 //add numbers
 let numbers = [];
@@ -41,20 +42,34 @@ let timer = setInterval(() => {
     else {
         //console.log(count);
         countdown.innerHTML = count;
-        count-=1;
+        count -= 1;
     }
 }, 1000);
 
-// imputs check
-console.log(input);
-let inputList =[];
+// inputs check
+//console.log(input);
+let inputList = [];
 
-button.addEventListener("click", (event)=> {
+button.addEventListener("click", (event) => {
 
     event.preventDefault();
-    
-    for (let i = 0; i < input.length; i++) 
-    list.push(parseInt(input[i].value))
-    console.log(list);
+
+    for (let i = 0; i < input.length; i++) {
+        inputList.push(parseInt(input[i].value))
+    }
+    console.log(inputList);
+
+    let rightNumbers = []
+
+    for (let i = 0; i < inputList.length; i++) {
+        if (inputList[i] === numbers[0] || inputList[i] === numbers[1] || inputList[i] === numbers[2]
+            || inputList[i] === numbers[3] || inputList[i] === numbers[4]) {
+            rightNumbers.push(inputList[i])
+        }
+    }
+
+    console.log(rightNumbers);
+
+    message.innerHTML = rightNumbers.length + " giuste," + " " + rightNumbers
 })
 
