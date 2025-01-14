@@ -3,11 +3,17 @@
 // finito il countdown fa apparire gli input
 // valuta quali e quanti numeri sono giusti
 
-const time = 10
+const time = 0
 
-const countdown = document.getElementById("countdown")
+const countdown = document.getElementById("countdown");
+const numbersList = document.getElementById("numbers-list");
+const answersForm = document.getElementById("answers-form");
 
-let numbers = []
+const input = document.querySelectorAll("input");
+const button= document.querySelector("button");
+
+//add numbers
+let numbers = [];
 
 for (let i = 0; numbers.length < 5; i++) {
     numbers.push(Math.floor(Math.random() * 50) + 1);
@@ -15,16 +21,40 @@ for (let i = 0; numbers.length < 5; i++) {
 
 console.log(numbers);
 
+for (let i = 0; i < numbers.length; i++) {
+    let li = document.createElement("li");
+    li.append(numbers[i]);
+    numbersList.appendChild(li);
+}
+
+//timer
 let count = time
 
 let timer = setInterval(() => {
     if (count === 0) {
-        clearInterval(timer)
-        countdown.innerHTML = 0
+        clearInterval(timer);
+        countdown.innerHTML = 0;
+        //display
+        numbersList.className = "d-none";
+        answersForm.className = "d-block";
     }
     else {
-        console.log(count);
-        countdown.innerHTML = count
-        count-=1
+        //console.log(count);
+        countdown.innerHTML = count;
+        count-=1;
     }
 }, 1000);
+
+// imputs check
+console.log(input);
+let inputList =[];
+
+button.addEventListener("click", (event)=> {
+
+    event.preventDefault();
+    
+    for (let i = 0; i < input.length; i++) 
+    list.push(parseInt(input[i].value))
+    console.log(list);
+})
+
